@@ -23,7 +23,7 @@
     </div>
 
     <div class="category__content">
-        <form class="create-form" action="/categories" method="POST">
+        <form class="create-form" action="{{ route('categories.store') }}" method="POST">
             @csrf
             <div class="create-form__input">
                 <input type="text" class="create-form__input-text" name="name" value="{{ old('name') }}">
@@ -42,7 +42,7 @@
                 @foreach ($categories as $category)
                 <tr class="category__table__row">
                     <td class="category__table__data">
-                        <form class="update-form" action="/categories/update" method="POST">
+                        <form class="update-form" action="{{ route('categories.update') }}" method="POST">
                             @method('PATCH')
                             @csrf
                             <div class="update-form__input">
@@ -55,7 +55,7 @@
                         </form>
                     </td>
                     <td class="category__table__data">
-                        <form class="delete-form" action="/categories/delete" method="POST">
+                        <form class="delete-form" action="{{ route('categories.destroy') }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <div class="delete-form__button">

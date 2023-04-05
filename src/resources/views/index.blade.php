@@ -26,7 +26,7 @@
         <div class="form__title">
             <h2>新規作成</h2>
         </div>
-        <form class="create-form" action="/todos" method="post">
+        <form class="create-form" action="{{ route('todos.store') }}" method="post">
             @csrf
             <div class="create-form__input">
                 <input type="text" class="create-form__input-text" name="content">
@@ -44,7 +44,7 @@
         <div class="form__title">
             <h2>Todo検索</h2>
         </div>
-        <form class="search-form" action="/todos/search" method="get">
+        <form class="search-form" action="{{ route('todos.search') }}" method="get">
             @csrf
             <div class="search-form__input">
                 <input type="text" class="search-form__input-text" name="keyword" value="{{ old('keyword') }}">
@@ -70,7 +70,7 @@
                 @foreach ($todos as $todo)
                 <tr class="todo__table__row">
                     <td class="todo__table__data">
-                        <form class="update-form" action="/todos/update" method="POST">
+                        <form class="update-form" action="{{ route('todos.update') }}" method="POST">
                             @method('PATCH')
                             @csrf
                             <div class="update-form__inner">
@@ -88,7 +88,7 @@
                         </form>
                     </td>
                     <td class="todo__table__data">
-                        <form class="delete-form" action="/todos/delete" method="POST">
+                        <form class="delete-form" action="{{ route('todos.destroy') }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <div class="delete-form__button">
